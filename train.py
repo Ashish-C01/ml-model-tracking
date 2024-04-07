@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LogisticRegression
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix, roc_curve
@@ -18,7 +18,7 @@ X = preprocessing.scale(X)
 imp = SimpleImputer(missing_values=np.nan, strategy='mean')
 X = imp.fit_transform(X)
 
-clf = LogisticRegression()
+clf = QuadraticDiscriminantAnalysis()
 yhat = cross_val_predict(clf, X, y, cv=5)
 acc = np.mean(yhat == y)
 tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
