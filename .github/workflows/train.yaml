@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - permissions: write-all
-      - run: run: git config --system --add safe.directory "$PWD"
+      - run: git config --system --add safe.directory "$PWD"
 
       # may need to setup NodeJS & Python3 on e.g. self-hosted
       # - uses: actions/setup-node@v3
