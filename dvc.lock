@@ -4,39 +4,32 @@ stages:
     cmd: python get_data.py
     deps:
     - path: get_data.py
-      hash: md5
       md5: 4368175830a495cc5a4a3cb046379ae1
       size: 209
     outs:
     - path: data_raw.csv
-      hash: md5
       md5: 5d7ca13ee7949df66c305b7c805a7a60
       size: 55520
   process_data:
     cmd: python process_data.py
     deps:
     - path: data_raw.csv
-      hash: md5
       md5: 5d7ca13ee7949df66c305b7c805a7a60
       size: 55520
     - path: process_data.py
-      hash: md5
       md5: 0da30e060317ff11aa2e421fdf77a34a
       size: 705
     outs:
     - path: data_processed.csv
-      hash: md5
       md5: 67eaf9825502936004bf7caad92a9e52
       size: 24333
   train:
     cmd: python train.py
     deps:
     - path: data_processed.csv
-      hash: md5
       md5: 67eaf9825502936004bf7caad92a9e52
       size: 24333
     - path: train.py
-      hash: md5
       md5: 85daa1c41def9fdb8fc98f395d75e7dd
       size: 1245
     outs:
