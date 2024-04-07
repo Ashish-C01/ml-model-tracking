@@ -8,7 +8,6 @@ stages:
       size: 209
     outs:
     - path: data_raw.csv
-      hash: md5
       md5: 5d7ca13ee7949df66c305b7c805a7a60
       size: 55520
   process_data:
