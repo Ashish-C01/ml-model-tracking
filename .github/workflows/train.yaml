@@ -24,15 +24,13 @@ jobs:
           pip install -r requirements.txt
           dvc repro
           git fetch --prune
-          dvc metrics diff --targets metrics.json --md >> report.md
+          dvc metrics diff >> report.md
 
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Post reports as comments in GitHub PRs
-          # cat results.txt >> report.md
           echo "## Model metrics">> report.md  
-          # cat metrics.txt >> report.md
           echo "![](./by_region.png)" >> report.md
           cml comment create report.md
