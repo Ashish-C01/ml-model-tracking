@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
           dvc repro
           git fetch --prune
-          dvc metrics diff >> report.md
+          dvc metrics diff --md >> report.md
 
       - name: Write CML report
         env:
